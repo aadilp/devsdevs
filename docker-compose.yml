@@ -1,0 +1,16 @@
+version: '3'
+services:
+    web:
+        build: .
+        ports:
+            - "80:80"
+        volumes:
+            - "./:/app"
+    database:
+        image: postgres:alpine
+        env_file:
+            - ../db.env
+        volumes:
+            - ../db:/var/lib/postgresql/data/
+volumes:
+    db:
