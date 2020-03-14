@@ -6,6 +6,8 @@ services:
             - "80:80"
         volumes:
             - "./:/app"
+        env_file:
+            - ../db.env
     database:
         image: postgres:alpine
         env_file:
