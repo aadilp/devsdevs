@@ -4,10 +4,13 @@ services:
         build: .
         ports:
             - "80:80"
+            - "443:443"
         volumes:
             - "./:/app"
         env_file:
             - ../db.env
+        depends_on:
+            - database
     database:
         image: postgres:alpine
         env_file:
